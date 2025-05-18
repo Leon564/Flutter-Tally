@@ -46,6 +46,19 @@ class _TallyFormWidgetState extends State<TallyFormWidget> {
                 }
                 return NavigationDecision.navigate;
               },
+              onPageFinished: (url) {
+                _controller.runJavaScript('''
+                (function() {
+                  const style = document.createElement('style');
+                  style.innerHTML = `
+                    .tally-powered {
+                    display: none !important;
+                  }
+                  `;
+                  document.head.appendChild(style);
+                })();
+          ''');
+              },
             ),
           )
           ..loadRequest(Uri.parse(url));
