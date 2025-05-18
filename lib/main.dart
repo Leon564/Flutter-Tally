@@ -34,11 +34,17 @@ class _TallyFormScreenState extends State<TallyFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Tally Form')),
+      resizeToAvoidBottomInset: true,
       body: Stack(
+        key: const ValueKey('tally_form'),
+        alignment: Alignment.center,
+        fit: StackFit.expand,
+        clipBehavior: Clip.none,
         children: [
           if (!_completed)
             TallyFormWidget(
               formId: 'mYgyM0',
+              transparent: false,
               onSubmit: () {
                 setState(() => _completed = true);
 

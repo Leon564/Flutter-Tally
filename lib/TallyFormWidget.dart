@@ -29,9 +29,7 @@ class _TallyFormWidgetState extends State<TallyFormWidget> {
 
     final baseUrl = 'https://tally.so/r/${widget.formId}';
     final url =
-        widget.transparent
-            ? '$baseUrl?transparentBackground=1'
-            : '$baseUrl?embed=1';
+        widget.transparent ? '$baseUrl?transparentBackground=1' : baseUrl;
 
     _controller =
         WebViewController()
